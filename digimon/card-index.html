@@ -41,6 +41,7 @@ const LABEL={Red:'แดง • ไฟ',Blue:'น้ำเงิน • น้�
 const CLASS={Red:'R',Blue:'B',Green:'G',Black:'K',Yellow:'Y',Option:'O'};
 const LEVEL={Rookie:'ร่างเริ่มต้น',Champion:'ร่างกลาง',Ultimate:'ร่างสูง',Armor:'ร่างเกราะ',Option:'การ์ดสนับสนุน'};
 const PACK_HELP={Basic:'ดรอปจากการสู้ทั่วไป โดยเฉพาะช่วงต้น',Hyper:'แพ็กรางวัลระดับกลาง',Super:'แพ็กรางวัลระดับสูง',Great:'แพ็กรางวัลระดับสูง มีการ์ดทรงพลังและ Option หายาก',Red:'สายไฟ',Blue:'สายน้ำแข็ง',Green:'สายธรรมชาติ',Black:'สายความมืด',Yellow:'สายพิเศษ',Option:'สาย Option', 'S-Option':'Option ระดับสูง'};
+const FARM={Red:'Veemon ที่ Battle Cafe เมือง Flame City',Blue:'Garurumon ที่ Battle Cafe เมือง Igloo City',Green:'Veedramon ที่ Jungle City หรือ Angemon ที่ Pyramid City',Black:'Quetzalmon ที่ Dark City หรือ Gigadramon ที่ Steep Road',Yellow:'KingSukamon ที่ Junk City',Option:'Babamon ที่ Beginner City หรือ WarGreymon ใน Beginner City Arena ช่วงหลัง', 'S-Option':'Tai (ช่วงหลังของเนื้อเรื่อง)', 'S-Red':'Garudamon / Sora ที่ Flame City (ช่วงหลัง)', 'S-Green':'Mimi / Lillymon ที่ Jungle City (ช่วงหลัง)', 'S-Blue':'Matt / MetalGarurumon ที่ Igloo City (ช่วงหลัง)', 'S-Black':'Infermon / Diaboromon (ช่วงท้ายเกม)'};
 const SPEC={'なし':'ไม่มีความสามารถพิเศษของท่า ×','〇を0に':'ทำให้ท่า ○ ของศัตรูเหลือ 0','△を0に':'ทำให้ท่า △ ของศัตรูเหลือ 0','Xを0に':'ทำให้ท่า × ของศัตรูเหลือ 0','〇カウンター':'สวนกลับท่า ○','△カウンター':'สวนกลับท่า △','Xカウンター':'สวนกลับท่า ×','先制':'โจมตีก่อน','すいとる':'โจมตีแบบดูด HP','妨害':'รบกวน/ยกเลิกเอฟเฟกต์','自爆':'โจมตีแบบเสียสละ'};
 const TH={
 254:'เมื่อ Digimon ฝั่งเรามีระดับต่ำกว่าศัตรู จะสลับค่า HP ของทั้งสองฝ่าย',
@@ -117,6 +118,7 @@ function getWays(c){
  let out=[];
  if(c.packs.length)out.push('มีโอกาสออกจากแพ็ก: '+c.packs.map(x=>x.pack+(x.rare?' ★':'')).join(', '));
  if(c.packs.some(x=>x.rare))out.push('★ รายการที่มีเครื่องหมายกำกับต้องติดตั้ง Digi-Part 126 หรือ 127 เพื่อเพิ่มเข้าในพูลรางวัลของแพ็กนั้น');
+ const spots=[...new Set(c.packs.map(x=>x.pack))].filter(k=>FARM[k]).slice(0,3);if(spots.length)out.push('ตัวอย่างคู่ต่อสู้/จุดรับแพ็ก: '+spots.map(k=>k+' → '+FARM[k]).join('; ')+' (ชนิดแพ็กที่ได้รับอาจขึ้นกับช่วงเนื้อเรื่อง)');
  if(c.id===175)out.push('เลือก Veemon เป็น Partner ตอนเริ่มเกม หรือปลดล็อกทะเบียนการ์ดจากการพบ Davis ตามเนื้อเรื่อง');
  if(c.id===103)out.push('ได้การ์ด Apokarimon จากการชนะ Apokarimon ตามเงื่อนไขเนื้อเรื่อง; ไม่ได้จาก Basic Fusion');
  if(c.id===290)out.push('Speed Sevens: ได้จากการดำเนินกิจกรรมที่เกี่ยวข้องกับ Piximon ในช่วงท้ายเกม');
