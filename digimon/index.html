@@ -22,8 +22,8 @@ function ps1CardId(c){
  if(c.color==='Option')return OPTION_CARD_IDS.get(c.name.toLowerCase())??null;
  const key=c.name.toLowerCase(),file=PS1_SCANS[key]||PS1_SCANS[PS1_ALIASES[key]];
  if(!file)return null;
- const m=file.match(/\\b(\\d{3})\\b/);
- return m?Number(m[1]):null
+ const m=file.match(/[0-9]{3}/);
+ return m?Number(m[0]):null
 }
 function ps1Url(c){const id=ps1CardId(c);return id===null?null:'cards/'+String(id).padStart(3,'0')+'.png'}
 function iconSVG(c){return '<span aria-hidden="true">'+(c.color==='Option'?'✦':'◈')+'</span>'}
