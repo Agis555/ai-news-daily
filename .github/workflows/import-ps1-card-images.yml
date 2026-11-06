@@ -1,0 +1,53 @@
+name: Import PS1 card thumbnails (one-time)
+on:
+  push:
+    paths:
+      - '.github/workflows/import-ps1-card-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this website
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch the real Digimon Digital Card Battle thumbnails
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/deV8nnek/digimon-digital-card-battle-guide.git /tmp/dcb-images
+          git -C /tmp/dcb-images sparse-checkout set frontend/public/asset/image/card
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, shutil
+          source=Path('/tmp/dcb-images/frontend/public/asset/image/card')
+          target=Path('digimon/cards')
+          target.mkdir(parents=True,exist_ok=True)
+          count=0
+          for path in source.glob('card_*.png'):
+              m=re.match(r'card_(\d+)_',path.name)
+              if not m: continue
+              shutil.copyfile(path,target/f'{int(m.group(1)):03}.png')
+              count+=1
+          print('Imported',count,'real PS1 card thumbnails')
+          if count < 250: raise SystemExit('Incomplete source; aborting')
+          PY
+          cat > digimon/cards/SOURCE.md <<'EOF'
+          PS1 card thumbnail source:
+          https://github.com/deV8nnek/digimon-digital-card-battle-guide/tree/master/frontend/public/asset/image/card
+          Game: Digimon Digital Card Battle / Digimon World Digital Card Arena.
+          Copyright of game art remains with the respective owners; this is a non-commercial fan guide.
+          EOF
+      - name: Commit image files
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add digimon/cards
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add 301 real PS1 Digimon card thumbnails to site'
+            git push origin HEAD:main
+          fi
