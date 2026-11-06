@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1222">
+<title>Card Index • Digi Fusion Lab — PS1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap');
+:root{--bg:#091020;--card:#15233b;--card2:#102038;--border:#304b69;--ink:#eaf2ff;--muted:#a7bbd1;--cyan:#56d2f5;--gold:#ffd671}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at 10% 0,#1c386d,transparent 33%),var(--bg);font-family:Kanit,system-ui,sans-serif}a{color:#8bdfff}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #59deff;outline-offset:3px}
+main{max-width:1260px;margin:auto;padding:0 22px 60px}.top{max-width:1260px;margin:auto;padding:20px 22px 14px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:19px;font-weight:700;color:white;text-decoration:none}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav a{border-radius:9px;border:1px solid #415b7a;padding:8px 14px;text-decoration:none;color:#c7e4fc;background:#14243c}.nav a.on{background:#127bab;color:white;border-color:#39c7ed}.hero{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:10px 0 19px}.hero h1{font-size:clamp(27px,4.5vw,40px);margin:0}.hero p{color:var(--muted);font-size:14px;margin:6px 0 0;max-width:700px}.counter{border:1px solid #47749a;background:#102c48;border-radius:15px;padding:12px 18px;min-width:125px;text-align:center}.counter strong{display:block;font-size:26px;color:var(--gold)}.counter small{color:var(--muted)}
+.panel{background:#142239;border:1px solid var(--border);border-radius:15px;padding:16px;margin-bottom:16px}.filters{display:grid;grid-template-columns:minmax(200px,2fr) repeat(3,minmax(125px,1fr));gap:12px}.group{display:grid;gap:5px}.group label{font-size:12px;color:#c4dbf2}.group input,.group select{min-width:0;width:100%;height:42px;border:1px solid #435e7e;background:#0b182b;color:var(--ink);padding:8px 12px;border-radius:9px}.tips{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#9bbad5;font-size:12px;margin-top:12px}.tips strong{color:#f5d478}.countbar{display:flex;justify-content:space-between;gap:15px;align-items:center;margin:0 3px 14px;color:#a6c5dd;font-size:13px}.countbar button{background:#1e3a55;color:#dbedff;border:1px solid #436887;border-radius:8px;padding:6px 11px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}.item{border:1px solid #334e6c;border-radius:13px;background:linear-gradient(160deg,#1a304c,#112035);padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0;cursor:pointer;color:var(--ink);text-align:left;transition:transform .15s,border-color .15s}.item:hover{transform:translateY(-2px);border-color:#69c9ee}.picture{height:114px;display:grid;place-items:center;position:relative;background:linear-gradient(120deg,#1d3553,#0d192a);border-radius:10px;overflow:hidden}.picture img{width:104px;height:104px;object-fit:contain;image-rendering:pixelated}.num{position:absolute;left:7px;top:7px;font-size:11px;font-weight:700;background:#051a2dcc;padding:3px 6px;border-radius:6px}.item strong{font-size:15px;line-height:1.18;min-height:35px}.tiny{font-size:11px;color:#afc5db}.chips{display:flex;flex-wrap:wrap;gap:4px}.chip{font-size:10px;border:1px solid #476078;background:#22374f;border-radius:6px;padding:2px 6px;color:#e0edfa}.chip.R{color:#ff9a8b;border-color:#784c51}.chip.B{color:#9ac8ff;border-color:#46688e}.chip.G{color:#91ecc2;border-color:#3d795e}.chip.K{color:#c2b1fc;border-color:#65558b}.chip.Y{color:#ffe08e;border-color:#8b754d}.chip.O{color:#f0adf8;border-color:#875f92}.empty{padding:48px;text-align:center;color:var(--muted)}.source{color:#a4c4dd;font-size:12px;line-height:1.7}.source a{color:#91d4f9}
+dialog{border:none;background:#101f34;color:var(--ink);border-radius:18px;width:min(780px,calc(100vw - 28px));max-height:90vh;overflow-y:auto;padding:0;box-shadow:0 18px 80px #0009}dialog::backdrop{background:#000a}.dhead{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-bottom:1px solid #3b526d}.dhead strong{font-size:18px}.close{color:white;border:1px solid #526b8b;background:#223c59;border-radius:9px;padding:5px 11px}.dmain{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:18px 20px}.bigpic{width:180px;height:180px;background:#253850;border:1px solid #526b8b;border-radius:14px;display:grid;place-items:center}.bigpic img{width:160px;height:160px;object-fit:contain;image-rendering:pixelated}.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.stat{background:#1c3350;border:1px solid #335475;border-radius:9px;padding:8px}.stat small{font-size:11px;color:#acc6e0;display:block}.stat b{font-size:18px}.dmain h3{font-size:15px;margin:14px 0 6px}.dmain p{font-size:13px;line-height:1.75;color:#d2e3f5;margin:5px 0}.gain{border:1px solid #4b6886;background:#182e48;border-radius:11px;padding:12px}.gain ul{margin:7px 0;padding-left:22px;font-size:13px;line-height:1.8}.fine{font-size:11px!important;color:#98b6cf!important}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.actions button,.actions a{display:inline-block;background:#135e88;color:#fff;border:1px solid #3987af;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:13px}.actions .secondary{background:#24435d}.actions .owned{background:#157052;border-color:#38a37b}.highlight{color:var(--gold)}.note{border-left:3px solid #e2b55b;padding-left:12px}
+@media(max-width:700px){.top{display:block}.nav{margin-top:12px}.filters{grid-template-columns:1fr 1fr}.filters .group:first-child{grid-column:1/-1}.hero{align-items:flex-start}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.item{padding:9px}.dmain{display:block}.bigpic{margin:0 auto 15px}.statgrid{grid-template-columns:repeat(3,1fr)}}
+</style></head>
+<body>
+<header class="top"><a class="brand" href="./">⚡ Digi Fusion Lab</a><nav class="nav" aria-label="เมนู"><a href="./">🧪 ผสมการ์ด</a><a class="on" href="card-index.html">📚 Card Index</a></nav></header>
+<main>
+<section class="hero"><div><h1>📚 Card Index <span style="font-size:14px;color:#60e0a9">v2.1</span></h1><p>สารานุกรมการ์ด Digimon Digital Card Battle (PS1) • รูปจริง 301 ใบ • ค่าสถานะ • สรุปความสามารถภาษาไทย • วิธีหาและแพ็กรางวัล</p></div><div class="counter"><strong>301</strong><small>การ์ดทั้งหมด</small></div></section>
+<div class="panel"><div class="filters">
+<div class="group"><label for="search">ค้นชื่อ / หมายเลข (ไทยหรืออังกฤษ)</label><input id="search" placeholder="เช่น Veemon, Hacking, 254" autocomplete="off"></div>
+<div class="group"><label for="color">ประเภท / สี</label><select id="color"><option value="">ทุกสี</option><option value="Red">🔴 แดง (ไฟ)</option><option value="Blue">🔵 น้ำเงิน (น้ำแข็ง)</option><option value="Green">🟢 เขียว (ธรรมชาติ)</option><option value="Black">⚫ ดำ (ความมืด)</option><option value="Yellow">🟡 เหลือง (พิเศษ)</option><option value="Option">🟣 Option</option></select></div>
+<div class="group"><label for="stage">ระดับ</label><select id="stage"><option value="">ทุกระดับ</option><option>Rookie</option><option>Champion</option><option>Ultimate</option><option>Armor</option><option>Option</option></select></div>
+<div class="group"><label for="pack">แพ็กที่หาได้</label><select id="pack"><option value="">ทุกแพ็ก</option><option>Basic</option><option>Hyper</option><option>Super</option><option>Great</option><option>Red</option><option>S-Red</option><option>Blue</option><option>S-Blue</option><option>Green</option><option>S-Green</option><option>Black</option><option>S-Black</option><option>Yellow</option><option>S-Yellow</option><option>Option</option><option>S-Option</option><option value="special">นอก Prize Pack</option></select></div>
+</div>
+<div class="tips"><strong>วิธีใช้:</strong> แตะรูปการ์ดเพื่อดูรายละเอียด • เลือกแพ็กเพื่อหาการ์ดที่อาจได้รับ • Rare ในแพ็กบางประเภทต้องใส่ Digi-Part 126/127</div></div>
+<div class="countbar"><span id="count">กำลังโหลดข้อมูล...</span><div><button id="onlyOwned">☐ เฉพาะที่มีแล้ว</button> <button id="reset">ล้างตัวกรอง</button></div></div>
+<div id="grid" class="grid"></div>
+<div class="panel source" style="margin-top:18px"><b>คำอธิบายแหล่งข้อมูล:</b> รายการแพ็กคือ <b>โอกาสที่การ์ดจะออกใน Prize Pack</b> ไม่ใช่การรับประกันว่าชนะใครแล้วได้ใบนั้นทันที บางใบมีเฉพาะเนื้อเรื่องหรือเงื่อนไขพิเศษ คำอธิบายเอฟเฟกต์ภาษาไทยเป็นฉบับสรุปและอาจไม่ครอบคลุมทุกเงื่อนไข โปรดดูข้อความต้นฉบับเมื่อเล่นคอมโบที่ซับซ้อน
+<p>อ้างอิง: <a href="https://gamefaqs.gamespot.com/ps/526754-digimon-digital-card-battle/faqs/78563/prize-pack-list" target="_blank" rel="noopener">Prize Pack List (ZeoKnight)</a> • <a href="https://gamefaqs.gamespot.com/ps/526754-digimon-digital-card-battle/faqs/78563/100-game-completion-walkthrough" target="_blank" rel="noopener">Walkthrough 100%</a> • <a href="https://gamefaqs.gamespot.com/ps/526754-digimon-digital-card-battle/faqs/75834/basic-fusion" target="_blank" rel="noopener">Fusion FAQ</a> • <a href="https://github.com/deV8nnek/digimon-digital-card-battle-guide" target="_blank" rel="noopener">Card Data และภาพจากเกม</a></p></div>
+</main>
+<dialog id="detail"><div class="dhead"><strong id="dtitle">การ์ด</strong><button class="close" id="close">✕ ปิด</button></div><div id="dbody"></div></dialog>
+<script src="./card-index-data.js"></script>
+<script>
+(function(){
+'use strict';
+const cards=window.DCB_INDEX||[], ownedKey='dcb-owned-v2', owned=new Set(JSON.parse(localStorage.getItem(ownedKey)||'[]'));
+const $=id=>document.getElementById(id), esc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const LABEL={Red:'แดง • ไฟ',Blue:'น้ำเงิน • น้ำแข็ง',Green:'เขียว • ธรรมชาติ',Black:'ดำ • ความมืด',Yellow:'เหลือง • พิเศษ',Option:'Option'};
+const CLASS={Red:'R',Blue:'B',Green:'G',Black:'K',Yellow:'Y',Option:'O'};
+const LEVEL={Rookie:'ร่างเริ่มต้น',Champion:'ร่างกลาง',Ultimate:'ร่างสูง',Armor:'ร่างเกราะ',Option:'การ์ดสนับสนุน'};
+const PACK_HELP={Basic:'ดรอปจากการสู้ทั่วไป โดยเฉพาะช่วงต้น',Hyper:'แพ็กรางวัลระดับกลาง',Super:'แพ็กรางวัลระดับสูง',Great:'แพ็กรางวัลระดับสูง มีการ์ดทรงพลังและ Option หายาก',Red:'สายไฟ',Blue:'สายน้ำแข็ง',Green:'สายธรรมชาติ',Black:'สายความมืด',Yellow:'สายพิเศษ',Option:'สาย Option', 'S-Option':'Option ระดับสูง'};
+const SPEC={'なし':'ไม่มีความสามารถพิเศษของท่า ×','〇を0に':'ทำให้ท่า ○ ของศัตรูเหลือ 0','△を0に':'ทำให้ท่า △ ของศัตรูเหลือ 0','Xを0に':'ทำให้ท่า × ของศัตรูเหลือ 0','〇カウンター':'สวนกลับท่า ○','△カウンター':'สวนกลับท่า △','Xカウンター':'สวนกลับท่า ×','先制':'โจมตีก่อน','すいとる':'โจมตีแบบดูด HP','妨害':'รบกวน/ยกเลิกเอฟเฟกต์','自爆':'โจมตีแบบเสียสละ'};
+const TH={
+254:'เมื่อ Digimon ฝั่งเรามีระดับต่ำกว่าศัตรู จะสลับค่า HP ของทั้งสองฝ่าย',
+257:'สุ่มนำการ์ด Partner จากกองจั่วขึ้นมือ 1 ใบ',
+299:'วิวัฒนาการโดยไม่ต้องใช้ DP ตามปกติ (ใช้ไม่ได้เมื่ออยู่ในสถานะผิดปกติ)',
+293:'วิวัฒนาการได้โดยไม่สนธาตุ ระดับ และ DP ที่กำหนด',
+297:'วิวัฒนาการข้ามจาก Rookie ไป Ultimate โดยยังต้องมี DP',
+294:'วิวัฒนาการจาก Armor ไป Champion หรือ Ultimate โดยใช้ DP ตามเงื่อนไข',
+295:'เพิ่ม DP ชั่วคราว 20 และวิวัฒนาการข้ามข้อจำกัดธาตุ',
+296:'วิวัฒนาการเป็น Digimon ระดับเดียวกันได้ โดยใช้ DP และไม่สนธาตุ',
+298:'เปลี่ยนร่างเกราะกลับเป็น Rookie',
+300:'ถอยการวิวัฒนาการลง 1 ขั้น; ถ้าสำเร็จ HP เพิ่มเป็น 2 เท่า',
+264:'เพิ่มพลังโจมตีของฝ่ายเรา',
+266:'ใช้ฟื้น HP ฝั่งเรา',
+240:'ถ้าทั้งสองฝ่ายใช้ท่าโจมตีเดียวกัน พลังโจมตีเราเป็น 3 เท่า',
+241:'ถ้าทั้งสองฝ่ายใช้ท่าเดียวกัน พลังโจมตีคู่ต่อสู้กลายเป็น 0',
+253:'ยกเลิกเอฟเฟกต์ Support และ Option ของคู่ต่อสู้',
+255:'ทิ้งไพ่ 4 ใบบนสุดของกองจั่วคู่ต่อสู้',
+256:'ทำให้ HP พลังโจมตี และธาตุของเราเหมือนฝ่ายตรงข้าม',
+252:'ทิ้งการ์ดสุ่มจากมือคู่ต่อสู้ 2 ใบ',
+249:'หากศัตรูใช้ ○ เราจะได้โจมตีก่อนและพลังโจมตีเพิ่ม 500',
+250:'หากศัตรูใช้ △ เราจะได้โจมตีก่อนและพลังโจมตีเพิ่ม 500',
+251:'หากศัตรูใช้ × เราจะได้โจมตีก่อนและพลังโจมตีเพิ่ม 500',
+273:'เพิ่มพลังโจมตีฝ่ายเรา +100',
+274:'ฟื้น HP ฝั่งเรา 100',
+275:'เมื่อถูกโค่นจะคืนชีพด้วย HP 100 แต่ยังถือว่าแพ้รอบนั้น',
+276:'จั่วการ์ดเพิ่ม 2 ใบ',
+277:'เปลี่ยนธาตุของเราเป็นธรรมชาติ',278:'เปลี่ยนธาตุของเราเป็นพิเศษ',279:'เปลี่ยนธาตุของเราเป็นไฟ',280:'เปลี่ยนธาตุของเราเป็นความมืด',281:'เปลี่ยนธาตุของเราเป็นน้ำแข็ง',
+282:'เปลี่ยนท่าโจมตีของเราเป็น ○',283:'เปลี่ยนท่าโจมตีของเราเป็น △',284:'เปลี่ยนท่าโจมตีของเราเป็น ×',
+285:'พลังโจมตีของเราเพิ่มเป็น 3 เท่า',286:'ฟื้น HP ฝั่งเรา 1,000',287:'ถ้า HP ศัตรูน้อยกว่าเรา จะลด HP ศัตรูเหลือ 10',288:'เพิ่มพลังโจมตีตามค่า HP ของเรา',289:'ยกเลิก Support/Option ศัตรู และทำให้พลังโจมตีศัตรูเหลือ 0',290:'โจมตีก่อนพร้อมดูด HP และเพิ่มพลังโจมตี 200',291:'นำการ์ด 10 ใบจากกองทิ้งกลับสู่กองจั่วแล้วสับ',292:'คู่ต่อสู้ทิ้งการ์ดทั้งหมดจากมือและช่อง DP',
+267:'เพิ่มพลังโจมตีท่า ○',268:'เพิ่มพลังโจมตีท่า △',269:'เพิ่มพลังโจมตีท่า ×',
+270:'ทำให้พลังโจมตีท่า ○ ของศัตรูเป็น 0',271:'ทำให้พลังโจมตีท่า △ ของศัตรูเป็น 0',272:'ทำให้พลังโจมตีท่า × ของศัตรูเป็น 0',
+221:'หาก HP ของเราต่ำกว่าศัตรู ฟื้น HP ของเรา 700',244:'ฟื้น HP เรา 500 และฟื้น HP ศัตรู 200',
+248:'จั่วการ์ดจนมี 4 ใบในมือ และฟื้น HP เรา 100',
+246:'ลดพลังโจมตีเราเหลือครึ่งหนึ่ง แล้วฟื้น HP เรา 500',
+245:'เมื่อใช้ท่าโจมตีต่างกัน พลังโจมตีเราเป็น 2 เท่า',
+198:'เพิ่มพลังโจมตีฝ่ายเราอย่างมาก',
+191:'ลด HP ตัวเองเหลือครึ่งหนึ่ง แล้วสวนกลับการโจมตีศัตรู (เราโจมตีทีหลัง)'
+};
+function explain(c){
+ if(TH[c.id])return TH[c.id];
+ let s=(c.effect||'').normalize('NFKC');
+ if(s==='なし'||!s)return 'ไม่มีเอฟเฟกต์ Support เพิ่มเติม';
+ const a=[];
+ const add=x=>{if(x&&!a.includes(x))a.push(x)};
+ let m;
+ if(m=s.match(/自分の[○〇△X]?\s*攻撃力\s*\+\s*(\d+)/))add('เพิ่มพลังโจมตีเรา +'+m[1]);
+ if(m=s.match(/自分のHPを?\s*(\d+)回復/))add('ฟื้น HP ฝั่งเรา '+m[1]);
+ if(m=s.match(/自分のHP\s*(\d+)回復/))add('ฟื้น HP ฝั่งเรา '+m[1]);
+ if(m=s.match(/相手の攻撃力\s*-\s*(\d+)/))add('ลดพลังโจมตีศัตรู '+m[1]);
+ if(/相手の[○〇△X]?攻撃力[はを]0に/.test(s))add('ทำให้พลังโจมตีศัตรูเป็น 0');
+ if(/自分の攻撃力は(2|3)倍/.test(s))add('เพิ่มพลังโจมตีเราเป็น '+s.match(/自分の攻撃力は(2|3)倍/)[1]+' เท่า');
+ if(/相手の攻撃力は半分/.test(s))add('ลดพลังโจมตีศัตรูครึ่งหนึ่ง');
+ if(/山札から\d+枚引く/.test(s))add('จั่วการ์ดเพิ่ม '+s.match(/山札から(\d+)枚引く/)[1]+' ใบ');
+ if(/相手の.*山札から\d+枚捨て/.test(s))add('ทิ้งการ์ดจากกองจั่วศัตรู');
+ if(/援護.*無効/.test(s))add('ยกเลิก Support');
+ if(/オプション.*無効/.test(s))add('ยกเลิก Option');
+ if(/先制/.test(s))add('โจมตีก่อน');
+ if(/カウンター/.test(s))add('สวนกลับท่าโจมตี');
+ if(/属性は/.test(s))add('เปลี่ยนธาตุที่ใช้ต่อสู้');
+ if(/進化/.test(s))add('มีผลต่อการวิวัฒนาการ');
+ if(/HP.*入れ替/.test(s))add('สลับค่า HP');
+ if(/手札.*捨て/.test(s))add('ทิ้งการ์ดในมือ');
+ if(/復活/.test(s))add('ชุบชีวิตเมื่อถูกโค่นตามเงื่อนไข');
+ if(!a.length) return 'มีเอฟเฟกต์สนับสนุนหรือเปลี่ยนเงื่อนไขการต่อสู้ (ดูรายละเอียดต้นฉบับด้านล่าง)';
+ return a.join(' • ')+(s.includes('なら')||s.includes('とき')?' (ทำงานเมื่อเข้าเงื่อนไขที่ระบุ)':'');
+}
+function cardSummary(c){
+ if(c.stage==='Option')return 'การ์ด Option ใช้สนับสนุนการต่อสู้หรือเปลี่ยนสถานการณ์ ไม่ต้องส่งเป็น Digimon ลงสนาม';
+ const power=Math.max(c.o||0,c.t||0,c.x||0),attack=power===c.o?'○':power===c.t?'△':'×';
+ return (LEVEL[c.stage]||c.stage)+' ธาตุ'+LABEL[c.color]+' มี HP '+(c.hp??'-')+' และท่า '+attack+' แรงสุด '+power+'; '+(SPEC[c.special]||'ท่า × มีคุณสมบัติพิเศษ')+' ';
+}
+function getWays(c){
+ let out=[];
+ if(c.packs.length)out.push('มีโอกาสออกจากแพ็ก: '+c.packs.map(x=>x.pack+(x.rare?' ★':'')).join(', '));
+ if(c.packs.some(x=>x.rare))out.push('★ รายการที่มีเครื่องหมายกำกับต้องติดตั้ง Digi-Part 126 หรือ 127 เพื่อเพิ่มเข้าในพูลรางวัลของแพ็กนั้น');
+ if(c.id===175)out.push('เลือก Veemon เป็น Partner ตอนเริ่มเกม หรือปลดล็อกทะเบียนการ์ดจากการพบ Davis ตามเนื้อเรื่อง');
+ if(c.id===103)out.push('ได้การ์ด Apokarimon จากการชนะ Apokarimon ตามเงื่อนไขเนื้อเรื่อง; ไม่ได้จาก Basic Fusion');
+ if(c.id===290)out.push('Speed Sevens: ได้จากการดำเนินกิจกรรมที่เกี่ยวข้องกับ Piximon ในช่วงท้ายเกม');
+ if(c.id===285)out.push('Wild Sevens: รางวัลจากกิจกรรม Imperialdramon ช่วงท้ายเกม');
+ if(c.id>=172&&c.id<=190)out.push('การ์ดสาย Partner / Armor: ปลดล็อกตาม Partner, Digi-Egg และเหตุการณ์เนื้อเรื่อง; ไม่พบในตาราง Prize Pack');
+ if(!c.packs.length&&!(c.id>=172&&c.id<=190)&&![103,285,290].includes(c.id))out.push('ยังไม่ยืนยันแหล่งรับเฉพาะใบจากตาราง Prize Pack; อาจเป็นรางวัลพิเศษ เนื้อเรื่อง หรือเงื่อนไขปลดล็อก');
+ if(c.result!==null&&c.result>0)out.push('มีค่า Result '+c.result+' สำหรับ Basic Fusion; การได้จริงต้องตรงสี/คะแนน และอาจมีการสุ่มหรือข้อจำกัดร้าน');
+ return out;
+}
+let onlyOwned=false,filtered=[];
+function picture(c){const url='cards/'+String(c.id).padStart(3,'0')+'.png';return '<img loading="lazy" src="'+url+'" alt="'+esc(c.name)+'" onerror="this.style.display=\'none\';this.parentNode.textContent=\'ไม่มีภาพ\'">'}
+function render(){
+ const q=$('search').value.trim().toLowerCase(),color=$('color').value,stage=$('stage').value,pack=$('pack').value;
+ filtered=cards.filter(c=>(!q||(c.name+' '+c.jp+' '+c.id).toLowerCase().includes(q))&&(!color||c.color===color)&&(!stage||c.stage===stage)&&(!pack||(pack==='special'?!c.packs.length:c.packs.some(p=>p.pack===pack)))&&(!onlyOwned||owned.has(c.id)));
+ $('count').textContent='แสดง '+filtered.length+' / '+cards.length+' ใบ • เก็บแล้ว '+owned.size+' ใบ';
+ $('grid').innerHTML=filtered.map(c=>'<button class="item" data-id="'+c.id+'"><div class="picture">'+picture(c)+'<span class="num">#'+String(c.id).padStart(3,'0')+'</span></div><strong>'+esc(c.name)+'</strong><div class="chips"><span class="chip '+CLASS[c.color]+'">'+esc(LABEL[c.color])+'</span><span class="chip">'+esc(c.stage)+'</span></div><div class="tiny">'+(owned.has(c.id)?'✓ มีแล้ว • ':'')+(c.packs.length?'พบใน '+c.packs.length+' แพ็ก':'การ์ดเฉพาะ/แหล่งไม่ยืนยัน')+'</div></button>').join('')||'<div class="empty">ไม่พบการ์ดที่ตรงเงื่อนไข</div>';
+}
+function openCard(id){
+ const c=cards.find(x=>x.id===Number(id));if(!c)return;
+ const mat=c.material===null?'ไม่ระบุ':c.material,res=c.result===null?'ไม่ระบุ':c.result;
+ $('dtitle').textContent='#'+String(c.id).padStart(3,'0')+' '+c.name;
+ const stats=c.stage==='Option'?
+  '<div class="statgrid"><div class="stat"><small>Material</small><b>'+mat+'</b></div><div class="stat"><small>Result</small><b>'+res+'</b></div><div class="stat"><small>ประเภท</small><b>Option</b></div></div>':
+  '<div class="statgrid">'+[['HP',c.hp],['○',c.o],['△',c.t],['×',c.x],['DP',c.dp],['+P',c.pow]].map(x=>'<div class="stat"><small>'+x[0]+'</small><b>'+String(x[1]??'-')+'</b></div>').join('')+'</div>';
+ const ways=getWays(c);
+ $('dbody').innerHTML='<div class="dmain"><div><div class="bigpic">'+picture(c)+'</div><p style="text-align:center;color:#91b8d9;font-size:12px">รูปจากเกม PS1 • #'+c.id+'</p></div><div>'+
+ '<div class="chips"><span class="chip '+CLASS[c.color]+'">'+esc(LABEL[c.color])+'</span><span class="chip">'+esc(c.stage)+'</span></div><h3>อธิบายการ์ดภาษาไทย</h3><p>'+esc(cardSummary(c))+'</p>'+stats+
+ (c.stage!=='Option'?'<h3>ความสามารถท่า ×</h3><p>'+esc(SPEC[c.special]||c.special||'ไม่มี')+'</p>':'')+
+ '<h3>เอฟเฟกต์ Support / Option</h3><p>'+esc(explain(c))+'</p><details><summary style="font-size:12px;color:#9bc5e4;cursor:pointer">ดูคำอธิบายต้นฉบับภาษาญี่ปุ่น</summary><p class="fine">'+esc(c.effect||'ไม่มี')+'</p></details>'+
+ '<h3>🎁 วิธีได้รับการ์ด</h3><div class="gain"><ul>'+ways.map(s=>'<li>'+esc(s)+'</li>').join('')+'</ul><p class="fine">แพ็กเป็นเพียงรายการที่อาจได้รับ ไม่ใช่อัตราดรอปที่รับประกัน • อ้างอิง Prize Pack List</p></div>'+
+ '<div class="actions"><button id="ownBtn" class="'+(owned.has(c.id)?'owned':'secondary')+'">'+(owned.has(c.id)?'✓ มีแล้ว':'＋ บันทึกว่ามีแล้ว')+'</button><a href="./?target='+encodeURIComponent(c.name)+'">🧪 ไปหน้าผสมการ์ด</a><button class="secondary" id="copyBtn">🔗 คัดลอกลิงก์</button></div></div></div>';
+ $('detail').showModal();
+ $('ownBtn').onclick=()=>{if(owned.has(c.id))owned.delete(c.id);else owned.add(c.id);localStorage.setItem(ownedKey,JSON.stringify([...owned]));render();openCardRefresh(c.id)};
+ $('copyBtn').onclick=()=>{navigator.clipboard?.writeText(location.origin+location.pathname+'#card='+c.id)};
+ history.replaceState(null,'','#card='+c.id);
+}
+function openCardRefresh(id){$('detail').close();openCard(id)}
+$('grid').addEventListener('click',e=>{const node=e.target.closest('[data-id]');if(node)openCard(node.dataset.id)});
+$('close').onclick=()=>{$('detail').close();history.replaceState(null,'',location.pathname+location.search)};
+$('detail').addEventListener('click',e=>{if(e.target===$('detail'))$('close').click()});
+['search','color','stage','pack'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',render));
+$('reset').onclick=()=>{['search','color','stage','pack'].forEach(id=>$(id).value='');onlyOwned=false;$('onlyOwned').textContent='☐ เฉพาะที่มีแล้ว';render()};
+$('onlyOwned').onclick=()=>{onlyOwned=!onlyOwned;$('onlyOwned').textContent=(onlyOwned?'☑':'☐')+' เฉพาะที่มีแล้ว';render()};
+render();if(location.hash.startsWith('#card='))openCard(location.hash.split('=')[1]);
+})();
+</script>
+</body></html>
