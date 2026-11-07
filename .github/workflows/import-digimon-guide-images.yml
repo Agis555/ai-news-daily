@@ -1,0 +1,26 @@
+name: Copy gameplay screenshots into walkthrough
+on:
+  push:
+    paths:
+      - '.github/workflows/import-digimon-guide-images.yml'
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch PS1 guide screenshots
+        run: |
+          set -euo pipefail
+          mkdir -p digimon/guide/images
+          for img in in-game-deck-ui.png in-game-hacker-theme.png; do
+            curl -fL --retry 3 "https://raw.githubusercontent.com/deV8nnek/digimon-digital-card-battle-guide/master/img/$img" -o "digimon/guide/images/$img"
+          done
+          file digimon/guide/images/*.png
+      - name: Commit bundled screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add digimon/guide/images
+          git diff --cached --quiet || (git commit -m "Bundle PS1 screenshots for walkthrough" && git push origin HEAD:main)
